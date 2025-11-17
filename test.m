@@ -16,7 +16,8 @@ end
 ups = 7;
 dns = 10;
 
-[y, by] = resample(x,ups,dns);
+[y, by] = uniformResample(x, 0, 1, [1,2], x, ups, dns);
+
 mean_y = mean(y);
 periods_resampled = 0;
 for i = 1 : length(y) - 1
