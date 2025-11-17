@@ -1,24 +1,68 @@
-function  [y, h] = uniformResample(x, isDimValSet, Dim, dimIn, xTrue, p, q)
+function  varargout = resample(varargin)
+
+narginchk(2,10);
+
+tempArgs = cell(size(varargin));
+
+[tempArgs{:}] = convertStringsToChars(varargin{:});
+
+[Dim,m,isDimValSet] = dimParser(tempArgs{:});
+
+% permutes the input dimensions such that it's first non-singleton dimension is DIM
+[xIn, dimIn] = orientToNdim (varargin{1}, Dim);
+
+% fetch the users desired interpolation method (if any)
+method = getInterpMethod(tempArgs{:});
+
+% Parse the inputs and set the appropriate arguments
+isP = isscalar(varargin{2});
+
+% fetch the numeric arguments
+n1 = coder.const(countNumericInputs(varargin{:}));
+numericArgs = cell(1,n1);
+idx =0;
+
+coder.unroll();
+for kk = 1:length(varargin)
+    if isnumeric(varargin{kk}) || isdatetime(varargin{kk})
+        idx = idx+1;
+        numericArgs{idx} = varargin{kk};
+    end
+end
+
+if isP && (m <= 5)
+    % [...] = RESAMPLE(X,P,Q,...)
+    % error check for uniform resampling
+    coder.internal.assert(~(m < 3 && isP),'signal:resample:MissingQ');
+    
+    % interpolation is not performed when using uniformly sampled data
+    coder.internal.assert(~(~strcmp(method,'')),'signal:resample:UnexpectedInterpolation',method);
+    
+    [varargout{1:max(1,nargout)}] = uniformResample(xIn, isDimValSet, Dim, dimIn, numericArgs{:});
+end
+end
+
+function  [y, h] = uniformResample(x, isDimValSet, Dim, dimIn, xTrue, p, q, varargin)
 
 % codegen inference
 if nargin < 7
     q = 1;
 end
 
-% % number of numeric arguments in varargin
-% nNum = length(varargin);
+% number of numeric arguments in varargin
+nNum = length(varargin);
 N = 10;
 bta = 5;
 
-% % parse N and beta
-% if ~isempty(varargin)
-%     if ((nNum >= 2 && isDimValSet)|| (nNum >= 1 && ~isDimValSet))&& ~isempty(varargin{1})
-%         N = varargin{1};
-%     end
-%     if ((nNum >= 3 && isDimValSet)|| (nNum >= 2 && ~isDimValSet))&& ~isempty(varargin{2})
-%         bta = varargin{2};
-%     end
-% end
+% parse N and beta
+if ~isempty(varargin)
+    if ((nNum >= 2 && isDimValSet)|| (nNum >= 1 && ~isDimValSet))&& ~isempty(varargin{1})
+        N = varargin{1};
+    end
+    if ((nNum >= 3 && isDimValSet)|| (nNum >= 2 && ~isDimValSet))&& ~isempty(varargin{2})
+        bta = varargin{2};
+    end
+end
 
 validateattributes(x, {'numeric'},{},'resample','X',1);
 validateResampleRatio(p, q);
