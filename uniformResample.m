@@ -55,18 +55,15 @@ Ly = ceil(Lx*p/q);  % output length
 % ----  HERE'S THE CALL TO UPFIRDN  ----------------------------
 y = coder.nullcopy(zeros(Ly,1));
 
-xTrue = [x; zeros(size(h,2),1)];
-
 if isvector(x)
-    yUp = upsample(xTrue, p);
-    yFir = filter(h, 1, yUp);
+    yUp = upsample(x, p);
+    yFir = conv(h, yUp);
     yDn = downsample(yFir, q);
-    yVec = [yDn;zeros(size(h,2),1)];
     indV = delay+(1:Ly);
     
     if ~isrow(x)
         indV = indV.';
-        yV = yVec(indV);
+        yV = yDn(indV);
         y = yV;
     end
 end
