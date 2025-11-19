@@ -2,7 +2,7 @@
  * File: _coder_FIRWithLeastSquares_mex.h
  *
  * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 18-Nov-2025 16:53:22
+ * C/C++ source code generated on  : 19-Nov-2025 10:20:56
  */
 
 #ifndef _CODER_FIRWITHLEASTSQUARES_MEX_H

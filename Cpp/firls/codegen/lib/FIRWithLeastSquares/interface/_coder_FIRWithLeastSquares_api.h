@@ -2,7 +2,7 @@
  * File: _coder_FIRWithLeastSquares_api.h
  *
  * MATLAB Coder version            : 5.1
- * C/C++ source code generated on  : 18-Nov-2025 16:53:22
+ * C/C++ source code generated on  : 19-Nov-2025 10:20:56
  */
 
 #ifndef _CODER_FIRWITHLEASTSQUARES_API_H
@@ -46,7 +46,7 @@ extern "C" {
 #endif
 
   /* Function Declarations */
-  void FIRWithLeastSquares(int32_T N, real_T freq[4], real_T amp[4],
+  void FIRWithLeastSquares(real_T N, real_T freq[4], real_T amp[4],
     emxArray_real_T *h);
   void FIRWithLeastSquares_api(const mxArray * const prhs[3], const mxArray
     *plhs[1]);

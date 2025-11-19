@@ -2,7 +2,7 @@
 // File: FIRWithLeastSquares.h
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 18-Nov-2025 16:53:22
+// C/C++ source code generated on  : 19-Nov-2025 10:20:56
 //
 #ifndef FIRWITHLEASTSQUARES_H
 #define FIRWITHLEASTSQUARES_H
@@ -14,8 +14,8 @@
 #include <cstdlib>
 
 // Function Declarations
-extern void FIRWithLeastSquares(int N, const double freq[4], const double amp[4],
-  coder::array<double, 2U> &h);
+extern void FIRWithLeastSquares(double N, const double freq[4], const double
+  amp[4], coder::array<double, 2U> &h);
 
 #endif
 

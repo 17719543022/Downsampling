@@ -2,7 +2,7 @@
 // File: FIRWithLeastSquares.cpp
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 18-Nov-2025 16:53:22
+// C/C++ source code generated on  : 19-Nov-2025 10:20:56
 //
 
 // Include Files
@@ -103,14 +103,14 @@ static double rt_remd_snf(double u0, double u1)
 
 //
 // Cast to enforce precision rules N, F and A
-// Arguments    : int N
+// Arguments    : double N
 //                const double freq[4]
 //                const double amp[4]
 //                coder::array<double, 2U> &h
 // Return Type  : void
 //
-void FIRWithLeastSquares(int N, const double freq[4], const double amp[4], coder::
-  array<double, 2U> &h)
+void FIRWithLeastSquares(double N, const double freq[4], const double amp[4],
+  coder::array<double, 2U> &h)
 {
   coder::array<double, 2U> m;
   coder::array<double, 1U> b;
@@ -129,6 +129,7 @@ void FIRWithLeastSquares(int N, const double freq[4], const double amp[4], coder
 
   //  validate ftype
   //  filter length
+  N++;
   Nodd = rtIsNaN(freq[0]);
   if (!Nodd) {
     idx = 1;
@@ -191,8 +192,8 @@ void FIRWithLeastSquares(int N, const double freq[4], const double amp[4], coder
   //  check validity of input F and A
   if ((max_freq > 1.0) || (min_freq < 0.0)) {
     int loop_ub;
-    h.set_size(1, (N + 1));
-    loop_ub = N + 1;
+    h.set_size(1, (static_cast<int>(N)));
+    loop_ub = static_cast<int>(N);
     for (i = 0; i < loop_ub; i++) {
       h[i] = 0.0;
     }
@@ -212,10 +213,10 @@ void FIRWithLeastSquares(int N, const double freq[4], const double amp[4], coder
     F_idx_3 = freq[3] / 2.0;
 
     //  find the order
-    L = ((static_cast<double>(N) + 1.0) - 1.0) / 2.0;
+    L = (N - 1.0) / 2.0;
 
     //  odd order
-    Nodd = (rt_remd_snf(static_cast<double>(N) + 1.0, 2.0) == 1.0);
+    Nodd = (rt_remd_snf(N, 2.0) == 1.0);
 
     //  initialize b0
     b0 = 0.0;
@@ -223,8 +224,14 @@ void FIRWithLeastSquares(int N, const double freq[4], const double amp[4], coder
     //  Type I linear phase FIR
     //  Basis vectors are cos(2*pi*m*f)
     if (!Nodd) {
-      if (L < 0.0) {
+      if (rtIsNaN(L)) {
+        m.set_size(1, 1);
+        m[0] = rtNaN;
+      } else if (L < 0.0) {
         m.set_size(1, 0);
+      } else if (rtIsInf(L) && (0.0 == L)) {
+        m.set_size(1, 1);
+        m[0] = rtNaN;
       } else {
         loop_ub = static_cast<int>(std::floor(L));
         m.set_size(1, (loop_ub + 1));
@@ -242,8 +249,14 @@ void FIRWithLeastSquares(int N, const double freq[4], const double amp[4], coder
 
       //  type II
     } else {
-      if (L < 0.0) {
+      if (rtIsNaN(L)) {
+        m.set_size(1, 1);
+        m[0] = rtNaN;
+      } else if (L < 0.0) {
         m.set_size(1, 0);
+      } else if (rtIsInf(L) && (0.0 == L)) {
+        m.set_size(1, 1);
+        m[0] = rtNaN;
       } else {
         loop_ub = static_cast<int>(std::floor(L));
         m.set_size(1, (loop_ub + 1));

@@ -2,7 +2,7 @@
 // File: main.cpp
 //
 // MATLAB Coder version            : 5.1
-// C/C++ source code generated on  : 18-Nov-2025 16:53:22
+// C/C++ source code generated on  : 19-Nov-2025 10:20:56
 //
 
 //***********************************************************************
@@ -39,7 +39,6 @@
 
 // Function Declarations
 static void argInit_1x4_real_T(double result[4]);
-static int argInit_int32_T();
 static double argInit_real_T();
 static void main_FIRWithLeastSquares();
 
@@ -56,15 +55,6 @@ static void argInit_1x4_real_T(double result[4])
     // Change this value to the value that the application requires.
     result[idx1] = argInit_real_T();
   }
-}
-
-//
-// Arguments    : void
-// Return Type  : int
-//
-static int argInit_int32_T()
-{
-  return 0;
 }
 
 //
@@ -91,7 +81,7 @@ static void main_FIRWithLeastSquares()
 
   // Initialize function input argument 'amp'.
   // Call the entry-point 'FIRWithLeastSquares'.
-  FIRWithLeastSquares(argInit_int32_T(), freq_tmp, freq_tmp, h);
+  FIRWithLeastSquares(argInit_real_T(), freq_tmp, freq_tmp, h);
 }
 
 //

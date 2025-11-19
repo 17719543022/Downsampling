@@ -1,7 +1,7 @@
 <deployment-project plugin="plugin.coder" plugin-version="R2018b">
-  <configuration build-checksum="886036694" file="C:\Users\Admin\Documents\MATLAB\Downsampling\Cpp\firls\FIRWithLeastSquares.prj" location="C:\Users\Admin\Documents\MATLAB\Downsampling\Cpp\firls" name="FIRWithLeastSquares" target="target.unifiedcoder" target-name="MATLAB Coder">
+  <configuration build-checksum="4288981343" file="C:\Users\Admin\Documents\MATLAB\Downsampling\Cpp\firls\FIRWithLeastSquares.prj" location="C:\Users\Admin\Documents\MATLAB\Downsampling\Cpp\firls" name="FIRWithLeastSquares" target="target.unifiedcoder" target-name="MATLAB Coder">
     <profile key="profile.mex">
-      <param.BuiltInstrumentedMex />
+      <param.BuiltInstrumentedMex>false</param.BuiltInstrumentedMex>
       <param.RanInstrumentedMex>false</param.RanInstrumentedMex>
       <param.WorkingFolder>option.WorkingFolder.Project</param.WorkingFolder>
       <param.SpecifiedWorkingFolder />
@@ -34,7 +34,7 @@
       <param.DefaultTestFile />
       <param.MergeInstrumentationResults>false</param.MergeInstrumentationResults>
       <param.VerificationMode>option.VerificationMode.None</param.VerificationMode>
-      <param.VerificationStatus>option.VerificationStatus.Inactive</param.VerificationStatus>
+      <param.VerificationStatus>option.VerificationStatus.Passed</param.VerificationStatus>
       <param.EnableMexProfiling>false</param.EnableMexProfiling>
       <var.BuiltWithMexProfiling>false</var.BuiltWithMexProfiling>
       <param.CustomSourceCode />
@@ -64,7 +64,7 @@
       <param.ConstantInputs>option.ConstantInputs.CheckValues</param.ConstantInputs>
       <param.EnableCRICodeCoverage>true</param.EnableCRICodeCoverage>
       <param.EnableJIT>false</param.EnableJIT>
-      <param.EnableJITSilentBailOut />
+      <param.EnableJITSilentBailOut>false</param.EnableJITSilentBailOut>
       <param.CheckForIssuesJIT>true</param.CheckForIssuesJIT>
       <param.EnableGitSupport>false</param.EnableGitSupport>
       <param.EnableAutoCommit>false</param.EnableAutoCommit>
@@ -103,7 +103,6 @@
         <param.DefaultTestFile />
         <param.MergeInstrumentationResults />
         <param.VerificationMode />
-        <param.VerificationStatus />
         <param.EnableMexProfiling />
         <var.BuiltWithMexProfiling />
         <param.CustomSourceCode />
@@ -847,7 +846,9 @@
     </profile>
     <param.objective>option.objective.c</param.objective>
     <param.WorkflowStep>workflowSummary</param.WorkflowStep>
-    <param.TestSnippets />
+    <param.TestSnippets>
+      <item>FIRWithLeastSquares(200, [0 0.1 0.1 1], [1 1 0 0])</item>
+    </param.TestSnippets>
     <param.ExternalFcnMajority>column</param.ExternalFcnMajority>
     <param.UseGlobals>option.UseGlobals.No</param.UseGlobals>
     <param.outputfile>${PROJECT_ROOT}\codegen\lib\FIRWithLeastSquares\FIRWithLeastSquares.lib</param.outputfile>
@@ -865,7 +866,7 @@
     <param.AutoInferUnboundedSizeThreshold>2048</param.AutoInferUnboundedSizeThreshold>
     <param.EnableFixedPointStep>false</param.EnableFixedPointStep>
     <param.EnableScreener>true</param.EnableScreener>
-    <param.AnnotationChecksum>1976210468</param.AnnotationChecksum>
+    <param.AnnotationChecksum>1115759530</param.AnnotationChecksum>
     <var.LegacyTarget />
     <var.MirrorOnOpen>false</var.MirrorOnOpen>
     <param.FixedPointEnabled>false</param.FixedPointEnabled>
@@ -874,11 +875,12 @@
     <param.unifiedParamStorage />
     <var.gc.lastOutputRoot>codegen\lib\FIRWithLeastSquares</var.gc.lastOutputRoot>
     <var.gc.lastOutputType>C_CODE</var.gc.lastOutputType>
-    <var.gc.preBuildChecksum>3718353531</var.gc.preBuildChecksum>
-    <var.cfi.lastOutputRoot />
-    <var.cfi.preBuildChecksum />
+    <var.gc.preBuildChecksum>1886129456</var.gc.preBuildChecksum>
+    <var.cfi.lastOutputRoot>codegen\mex\FIRWithLeastSquares</var.cfi.lastOutputRoot>
+    <var.cfi.preBuildChecksum>1063767937</var.cfi.preBuildChecksum>
+    <var.lastCfiTestSnippet>FIRWithLeastSquares(200, [0 0.1 0.1 1], [1 1 0 0])</var.lastCfiTestSnippet>
     <var.outdatedOnRestore>false</var.outdatedOnRestore>
-    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;C:\Users\Admin\Documents\MATLAB\Downsampling\Cpp\firls\FIRWithLeastSquares.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;1293902265&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
+    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;C:\Users\Admin\Documents\MATLAB\Downsampling\Cpp\firls\FIRWithLeastSquares.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;219167178&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
     <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;C:\Users\Admin\Documents\MATLAB\Downsampling\Cpp\firls\FIRWithLeastSquares.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
     <param.forceMexBuild>false</param.forceMexBuild>
     <param.NoDefaultJIT>false</param.NoDefaultJIT>
@@ -975,7 +977,6 @@
     <param.FixedPointUseDesignRanges>false</param.FixedPointUseDesignRanges>
     <unset>
       <param.objective />
-      <param.TestSnippets />
       <param.ExternalFcnMajority />
       <param.UseGlobals />
       <param.outputfile />
@@ -999,8 +1000,6 @@
       <var.redirectedInputTypeData />
       <var.DismissScreener />
       <param.unifiedParamStorage />
-      <var.cfi.lastOutputRoot />
-      <var.cfi.preBuildChecksum />
       <var.outdatedOnRestore />
       <param.forceMexBuild />
       <param.NoDefaultJIT />
@@ -1093,7 +1092,7 @@
     </unset>
     <fileset.entrypoints>
       <file custom-data-expanded="false" value="${PROJECT_ROOT}\FIRWithLeastSquares.m">
-        <Marker>1763455981182</Marker>
+        <Marker>1763518427605</Marker>
       </file>
     </fileset.entrypoints>
     <fileset.testbench />
@@ -1105,12 +1104,13 @@
           <Input Name="amp" typeId="1" />
           <idpTable>
             <type typeId="0">
-              <Class>int32</Class>
+              <Class>double</Class>
               <Size>1 x 1</Size>
               <Value />
               <InitialValue />
               <UserDefined>true</UserDefined>
               <Complex>false</Complex>
+              <Sparse>false</Sparse>
             </type>
             <type typeId="1">
               <Class>double</Class>
