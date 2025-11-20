@@ -8,5 +8,6 @@ fclose(fileID);
 ups = 7;
 dns = 10;
 
-[y, by] = uniformResample(x, ups, dns);
+[y, by] = resample(x, ups, dns);
+
 
